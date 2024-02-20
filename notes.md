@@ -13,3 +13,4 @@
 - Ridge regression(L2 regression)
 - Lasso regression(L1 regression)
 - Elastic net regression(L1+L2 regression)
+- 
