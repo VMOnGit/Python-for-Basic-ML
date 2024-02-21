@@ -13,4 +13,8 @@
 - Ridge regression(L2 regression)
 - Lasso regression(L1 regression)
 - Elastic net regression(L1+L2 regression)
-- 
+
+## Logistic regression
+- Uses the logit function to classify input data into 2 labels
+- For including more parameters add constants to the line equation y(x) = 1/(B1+B0x+E)
+- Confusion matrix to find performance. The metrics are Accuracy ,recall
