@@ -140,7 +140,7 @@ plt.show()
 
 ## Since we have completed EDA we move on to *creating, training and predicting* a K-Means clustering model
 
-# Creating a K-Means model
+# Creating a K-Means model using scikit-learn or `sklearn`
 For a K-Means clustering model, we need to identify the ideal amount of centroids to have the best output characteristics. There are 2 methods to identify this:
 - Shoulder method
    - The shoulder method is a quicker, older method to find the ideal number  of centroids for a K-Means clustering algorithm.
