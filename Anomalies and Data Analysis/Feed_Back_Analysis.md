@@ -21,7 +21,7 @@
 
 6. **Communication:** EDA often involves creating visualizations that make it easier to communicate findings to stakeholders, facilitating a better understanding of the data and its implications.
 
-This is conducted by reading the csv data in the form of a `pandas` dataframe 
+This is conducted by reading the csv data in the form of a `pandas` dataframe. Data frames are easily manipulatable using `Python` programs making the above processes much easier.
 
 # Machine Learning Approaches for Classification Problems
 
@@ -63,6 +63,56 @@ In machine learning, classification is a type of supervised learning task where 
    - Ensemble methods, such as bagging and boosting, combine the predictions of multiple models to improve overall performance and robustness.
    
 The choice of the classification algorithm depends on factors like the nature of the data, the size of the dataset, interpretability requirements, and the desired balance between bias and variance. It's common to experiment with multiple algorithms to determine which one performs best for a specific classification problem. For our purposes it is best to classify the data into clusters based on the satisfaction levels of different students and for clear differentiation between different satisfaction levels.
+
+# Process of Exploratory Data Analysis(EDA) using `pandas`
+## The steps to perform EDA are:
+- Data loading
+```python
+import pandas as pd         #Importing the pandas library for data processing
+df_class=pd.read_csv("https://raw.githubusercontent.com/sijuswamy/Intel-Unnati-sessions/main/Feed_back_data.csv")      #Pulling the dataset from GitHub
+df_class.head()                         #Viewing the 1st five rows of the data to verify the dataset
+```
+- Data cleaning
+```python
+df_class.isnull().sum()
+df_class = df_class.drop(['Timestamp','Email ID','Please provide any additional comments, suggestions, or feedback you have regarding the session. Your insights are valuable and will help us enhance the overall learning experience.'],axis=1)   #These datasets provide no help additonal data for our goal
+df_class.info()                          #Gives info about every feature of the dataset
+df_class.columns = ["Name","Branch","Semester","Resourse Person","Content Quality","Effeciveness","Expertise","Relevance","Overall Organization"]   #Assign better column names                                                                            #for easier understanding
+   
+```
+- Exploratory Data Analysis
+```python
+round(df_class["Resourse Person"].value_counts(normalize=True)*100,2
+round(df_class["Name"].value_counts(normalize=True)*100,2)
+```
+- Data visualisation
+```python
+ax = plt.subplot(1,2,1)
+ax = sns.countplot(x='Resourse Person', data=df_class)
+#ax.bar_label(ax.containers[0])
+plt.title("Faculty-wise distribution of data", fontsize=20,color = 'Brown',pad=20)
+ax =plt.subplot(1,2,2)
+ax=df_class['Resourse Person'].value_counts().plot.pie(explode=[0.1, 0.1,0.1,0.1,0.1],autopct='%1.2f%%',shadow=True);
+ax.tick_params(axis='x', labelrotation=90)
+ax.set_title(label = "Resourse Person", fontsize = 20,color='Brown',pad=20);
+```
+- Summary of the data
+  The response of each student is assessed with respect to Content Quality,Expertise,Relevance,Overall Organization,Branch,Content Quality
+```python
+sns.boxplot(y=df_class['Resourse Person'],x=df_class['Content Quality'])
+plt.show()
+sns.boxplot(y=df_class['Resourse Person'],x=df_class['Expertise'])
+plt.show()
+sns.boxplot(y=df_class['Resourse Person'],x=df_class['Relevance'])
+plt.show()
+sns.boxplot(y=df_class['Resourse Person'],x=df_class['Overall Organization'])
+plt.show()
+sns.boxplot(y=df_class['Resourse Person'],x=df_class['Branch'])
+plt.show()
+sns.boxplot(y=df_class['Branch'],x=df_class['Content Quality'])
+plt.show()
+```
+
 
 
 
