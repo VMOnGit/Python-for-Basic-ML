@@ -131,4 +131,6 @@ for i in range(len(classes)):
 
 plt.show()
 ```
+![image](https://github.com/VMOnGit/Python-for-Basic-ML/assets/114856002/e6c1a33b-f46f-4633-9654-c5d4bb113be5)
+
 These are 2 prime examples for supervised learning and more models based on decision tree and random forest can be found here:![Creating-LinearRe-DecisionTree-Models](https://github.com/VMOnGit/Python-for-Basic-ML/tree/main/Creating-LinearRe-DecisionTree-Models)
