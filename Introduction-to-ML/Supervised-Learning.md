@@ -55,7 +55,18 @@ The programs for basic regularised models using these methods can be found here:
 # Logistic Regression
 
 Logistic regression is a supervised learning algorithm used for binary classification. It models the probability of an instance belonging to a specific class, employing the logistic function to produce values between 0 and 1. A threshold is applied to predict the class, making it effective for categorical outcomes.
+## Confusion Matrix:
 
+A confusion matrix is a table that summarizes the performance of a classification algorithm. It compares predicted and actual values, categorizing them into true positives (TP), true negatives (TN), false positives (FP), and false negatives (FN).
+
+## Accuracy
+Accuracy:
+Accuracy measures the overall correctness of a classification model. It is calculated as the ratio of correct predictions (TP + TN) to the total number of predictions.
+
+Accuracy = TP+TN+FP+FN/TP+TN
+
+## Recall
+Recall quantifies the ability of a model to identify all relevant instances of a class. It is calculated as the ratio of true positives (TP) to the sum of true positives and false negatives (FN).
 A basic logistic regression implementation is given below:
 ## importing the requried libraries (sklearn,numpy,pandas)
 ```python
@@ -86,6 +97,8 @@ classifier = LogisticRegression(random_state = 0)
 classifier.fit(x_train, y_train)
 y_pred = classifier.predict(x_test)
 ```
+## Make confusion matrix, measure accuracy, precision, recall
+```python
 from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
 cm = confusion_matrix(y_test,y_pred)
@@ -117,3 +130,5 @@ for i in range(len(classes)):
         plt.text(j, i, format(cm[i, j], 'd'), horizontalalignment='center', color='white' if cm[i, j] > conf_matrix.max() / 2 else 'black')
 
 plt.show()
+```
+These are 2 prime examples for supervised learning and more models based on decision tree and random forest can be found here:![Creating-LinearRe-DecisionTree-Models](https://github.com/VMOnGit/Python-for-Basic-ML/tree/main/Creating-LinearRe-DecisionTree-Models)
